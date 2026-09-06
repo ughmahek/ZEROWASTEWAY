@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/dashboard.css">
 </head>
-
 <body>
 
   <header>
@@ -19,6 +18,7 @@
     </div>
 
     <nav>
+        
 
       <a href="trash-tips.html">Trash Tips</a>
 
@@ -41,6 +41,9 @@
       <a href="recycle-centers.html">
         Recycle
       </a>
+       <a href="waste-partner.html">
+  Waste Partner
+</a>
 
       <a href="sustainable-products.html">
         Sustainable Products
@@ -54,7 +57,7 @@
 
     <section class="card dashboard-hero">
 
-      <h1>Welcome to ZeroWasteWay 🌱</h1>
+     <h1>Welcome back, <span id="userName">there</span> 👋</h1>
 
       <p>
         Don't trash it. Transform it.
@@ -93,6 +96,10 @@
         <h2>📍 Recycle Centers</h2>
         <p>Find recycling centers near you.</p>
       </a>
+      <a href="waste-partner.html" class="dashboard-card">
+  <h2>🤝 Waste Partner</h2>
+  <p>Connect with trusted waste collectors and recycling partners.</p>
+</a>
 
       <a href="sustainable-products.html" class="dashboard-card">
         <h2>🌱 Sustainable Products</h2>
@@ -108,6 +115,16 @@
   </footer>
 
   <script src="../js/dashboard.js"></script>
+<script>
+    const currentUser = JSON.parse(
+        localStorage.getItem("zeroWasteCurrentUser")
+    );
+
+    if (currentUser) {
+        document.getElementById("userName").textContent =
+            currentUser.fullname;
+    }
+</script>
 
 </body>
 </html>

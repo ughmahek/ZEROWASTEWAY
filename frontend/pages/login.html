@@ -12,58 +12,172 @@
 
 <body>
 
-    <div class="auth-container">
+    <main class="auth-container">
 
         <div class="auth-card">
 
-            <h1>ZEROWASTEWAY</h1>
+            <!-- LEFT SIDE -->
+            <section class="auth-visual">
 
-            <p class="auth-subtitle">
-                Welcome back 🌱
-            </p>
+                <a href="../index.html" class="brand">
+                    <span class="brand-mark">♻</span>
+                    <span>ZEROWASTEWAY</span>
+                </a>
 
-            <form id="loginForm">
+                <div class="visual-content">
 
-                <div class="form-group">
-                    <label for="email">Email</label>
+                    <span class="welcome-pill">
+                        🌿 Welcome back
+                    </span>
 
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required
-                    >
+                    <h1>
+                        Small actions.<br>
+                        <span>Big impact.</span>
+                    </h1>
+
+                    <p>
+                        Continue your journey towards a cleaner,
+                        greener world — one action at a time.
+                    </p>
+
+                    <div class="eco-points">
+
+                        <div>
+                            <span>🌱</span>
+                            <p>
+                                <strong>Make an impact</strong>
+                                <small>Turn everyday actions into change.</small>
+                            </p>
+                        </div>
+
+                        <div>
+                            <span>♻️</span>
+                            <p>
+                                <strong>Keep waste in motion</strong>
+                                <small>Recycle. Reuse. Rethink.</small>
+                            </p>
+                        </div>
+
+                        <div>
+                            <span>🌍</span>
+                            <p>
+                                <strong>Build a better tomorrow</strong>
+                                <small>Every contribution matters.</small>
+                            </p>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
+                <p class="visual-footer">
+                    Don't Trash It. <strong>Transform It.</strong>
+                </p>
 
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                        required
-                    >
+            </section>
+
+
+            <!-- RIGHT SIDE -->
+            <section class="auth-form-section">
+
+                <div class="form-header">
+
+                    <span class="mobile-logo">
+                        ♻ ZEROWASTEWAY
+                    </span>
+
+                    <h2>Welcome back <span>🌱</span></h2>
+
+                    <p>
+                        Sign in to continue your journey.
+                    </p>
+
                 </div>
 
-                <button type="submit" class="btn">
-                    Login
-                </button>
 
-            </form>
+                <form id="loginForm">
 
-            <p class="switch-auth">
-                Don't have an account?
-                <a href="signup.html">Sign Up</a>
-            </p>
+                    <div class="form-group">
 
-            <p>
-                <a href="../index.html">← Back to Home</a>
-            </p>
+                        <label for="email">
+                            Email address
+                        </label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">✉</span>
+
+                            <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="you@example.com"
+    autocomplete="email"
+    required
+>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="label-row">
+                            <label for="password">
+                                Password
+                            </label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+
+                           <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Enter your password"
+    autocomplete="current-password"
+    required
+>
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+                        <span>Login</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <p class="switch-auth">
+                    Don't have an account?
+                    <a href="signup.html">Create an account</a>
+                </p>
+
+
+                <a
+                    href="../index.html"
+                    class="back-home"
+                >
+                    ← Back to Home
+                </a>
+
+            </section>
 
         </div>
 
-    </div>
+    </main>
+
 
     <script src="../js/auth.js"></script>
 

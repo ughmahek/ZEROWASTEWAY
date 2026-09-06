@@ -1,81 +1,240 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sign Up — ZeroWasteWay</title>
+```
+<title>Sign Up | ZeroWasteWay</title>
 
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/auth.css">
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/auth.css">
+```
+
 </head>
 
 <body>
 
-  <main class="auth">
+```
+<main class="auth-container">
 
     <div class="auth-card">
 
-      <div class="auth-hero">
+        <!-- =========================================
+             LEFT VISUAL SECTION
+             ========================================= -->
 
-        <span class="chip">🌱 ZeroWasteWay</span>
+        <section class="auth-visual">
 
-        <h1>Start your green journey</h1>
+            <a href="../index.html" class="brand">
+                <span class="brand-mark">♻</span>
+                ZERO WASTE WAY
+            </a>
 
-        <p>
-          Create your account and become part of a community
-          working towards a cleaner planet.
-        </p>
+            <div class="visual-content">
 
-        <div class="points">
-          <span class="chip">♻ Plastic Management</span>
-          <span class="chip">🏅 Earn Green Rewards</span>
-          <span class="chip">🛒 Shop Sustainably</span>
-        </div>
+                <div class="welcome-pill">
+                    🌱 JOIN THE MOVEMENT
+                </div>
 
-      </div>
+                <h1>
+                    Start your
+                    <span>green journey.</span>
+                </h1>
 
-      <div class="auth-forms">
+                <p>
+                    Create your ZeroWasteWay account and become
+                    part of a community turning everyday waste
+                    into a better future.
+                </p>
 
-        <div class="tabs">
-          <a class="tab" href="login.html">Login</a>
-          <a class="tab active" href="signup.html">Sign Up</a>
-        </div>
+                <div class="eco-points">
 
-        <form id="signupForm">
+                    <div>
+                        <span>♻️</span>
 
-          <div class="row">
-            <label class="muted">Full Name</label>
-            <input required name="fullname">
-          </div>
+                        <p>
+                            <strong>Make an Impact</strong>
+                            <small>Turn waste into meaningful change.</small>
+                        </p>
+                    </div>
 
-          <div class="row">
-            <label class="muted">Email</label>
-            <input required name="email" type="email">
-          </div>
+                    <div>
+                        <span>🏆</span>
 
-          <div class="row">
-            <label class="muted">Password</label>
-            <input
-              required
-              name="newpass"
-              type="password"
-              minlength="8"
-            >
-          </div>
+                        <p>
+                            <strong>Earn Green Rewards</strong>
+                            <small>Get rewarded for sustainable choices.</small>
+                        </p>
+                    </div>
 
-          <button class="btn" type="submit">
-            Create Account
-          </button>
+                    <div>
+                        <span>🌍</span>
 
-        </form>
+                        <p>
+                            <strong>Build a Greener Future</strong>
+                            <small>Every small action counts.</small>
+                        </p>
+                    </div>
 
-      </div>
+                </div>
+
+            </div>
+
+            <p class="visual-footer">
+                <strong>ZEROWASTEWAY</strong> · Don't Trash It. Transform It.
+            </p>
+
+        </section>
+
+
+        <!-- =========================================
+             RIGHT FORM SECTION
+             ========================================= -->
+
+        <section class="auth-form-section">
+
+            <div class="mobile-logo">
+                ♻ ZERO WASTE WAY
+            </div>
+
+            <div class="form-header">
+
+                <h2>
+                    Create your account <span>🌱</span>
+                </h2>
+
+                <p>
+                    Join ZeroWasteWay and start making a difference.
+                </p>
+
+            </div>
+
+
+            <form id="signupForm">
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullname">
+                        FULL NAME
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">👤</span>
+
+                        <input
+                            id="fullname"
+                            name="fullname"
+                            type="text"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="signupEmail">
+                        EMAIL ADDRESS
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">✉</span>
+
+                        <input
+                            id="signupEmail"
+                            name="email"
+                            type="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="signupPassword">
+                        PASSWORD
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">🔒</span>
+
+                        <input
+                            id="signupPassword"
+                            name="newpass"
+                            type="password"
+                            placeholder="Create a password"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <button class="login-btn" type="submit">
+
+                    <span>Create Account</span>
+
+                    <span class="btn-arrow">→</span>
+
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <p class="switch-auth">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Log in
+                </a>
+
+            </p>
+
+
+            <a href="../index.html" class="back-home">
+                ← Back to home
+            </a>
+
+        </section>
+
     </div>
 
-  </main>
+</main>
 
-  <script src="../js/auth.js"></script>
+
+<script src="../js/auth.js"></script>
+```
 
 </body>
 </html>

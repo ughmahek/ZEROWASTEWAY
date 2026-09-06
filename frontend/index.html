@@ -1,45 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZEROWASTEWAY — Don't Trash It, Transform It</title>
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/homepage.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZEROWASTEWAY — Don't Trash It, Transform It</title>
+
+    <link rel="stylesheet" href="css/start.css">
 </head>
+
 <body>
 
-  <section class="front-page" id="front">
-    <h1>ZEROWASTEWAY</h1>
-    <button id="startBtn">Start</button>
-  </section>
-
-  <section class="splash" id="splash">
-    <div class="brand-stack">
-      <div class="logo-mark" aria-label="ZEROWASTEWAY">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#7fd08f"/>
-              <stop offset="1" stop-color="#2f9e44"/>
-            </linearGradient>
-          </defs>
-          <path d="M52 12C26 13 12 28 12 48c0 2 0 4 1 6 15-7 27-18 35-33-8 17-20 29-37 36 6 4 13 5 19 5 17 0 30-13 30-30 0-7-2-13-8-20Z" fill="url(#g)"/>
-        </svg>
-
-        <div class="logo-text">ZEROWASTEWAY</div>
-      </div>
-
-      <div class="tagline">
-        “Don’t trash it, transform it.”
-      </div>
+    <!-- Floating background elements -->
+    <div class="eco-background">
+        <span>🍃</span>
+        <span>🌿</span>
+        <span>♻</span>
+        <span>🍃</span>
+        <span>🌱</span>
+        <span>♻</span>
+        <span>🌿</span>
     </div>
 
-    <div class="to-top">
-      <div class="mini">Loading experience…</div>
-    </div>
-  </section>
 
-  <script src="js/homepage.js"></script>
+    <!-- ================= INTRO ================= -->
+
+    <section id="intro" class="intro-screen">
+
+        <div class="intro-content">
+
+            <div class="logo-icon">
+                ♻
+            </div>
+
+            <h1 class="brand">
+                <span>ZERO</span><span>WASTE</span><span>WAY</span>
+            </h1>
+
+            <p class="tagline">
+                Don't Trash It. <span>Transform It.</span>
+            </p>
+
+            <div class="loading-line">
+                <div></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PORTAL ================= -->
+
+    <main id="portal" class="portal-screen">
+
+        <div class="portal-content">
+
+            <div class="mini-logo">
+                ♻ ZEROWASTEWAY
+            </div>
+
+            <p class="eyebrow">
+                WELCOME TO A CLEANER TOMORROW
+            </p>
+
+            <h2>
+                What brings you here?
+            </h2>
+
+            <p class="portal-description">
+                Choose your portal and let's make a difference together.
+            </p>
+
+
+            <div class="portal-cards">
+
+                <!-- USER -->
+
+                <a href="pages/login.html" class="portal-card user-card">
+
+                    <div class="card-icon">
+                        🌱
+                    </div>
+
+                    <div class="card-text">
+                        <span class="card-label">
+                            FOR INDIVIDUALS
+                        </span>
+
+                        <h3>
+                            I'm a User
+                        </h3>
+
+                        <p>
+                            Report waste, discover recycling centers,
+                            earn rewards and make sustainable choices.
+                        </p>
+                    </div>
+
+                    <div class="arrow">
+                        →
+                    </div>
+
+                </a>
+
+
+                <!-- WASTE PARTNER -->
+
+                <a href="pages/partner-login.html"
+                   class="portal-card partner-card">
+
+                    <div class="card-icon">
+                        ♻️
+                    </div>
+
+                    <div class="card-text">
+                        <span class="card-label">
+                            FOR WASTE PARTNERS
+                        </span>
+
+                        <h3>
+                            I'm a Waste Partner
+                        </h3>
+
+                        <p>
+                            Manage collections, handle waste requests
+                            and help keep our communities clean.
+                        </p>
+                    </div>
+
+                    <div class="arrow">
+                        →
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <p class="bottom-text">
+                Every small action creates a bigger change.
+                <span>🌎</span>
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/start.js"></script>
+
 </body>
 </html>
