@@ -1,0 +1,7 @@
+#trashReportForm {
+  max-width: 700px;
+}
+
+#trashReportForm textarea {
+  resize: vertical;
+}

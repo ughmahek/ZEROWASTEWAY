@@ -1,0 +1,48 @@
+.rewards-card {
+  text-align: center;
+}
+
+.points-display {
+  padding: 30px;
+
+  background: #f3fcf6;
+
+  border-radius: var(--radius);
+
+  margin: 20px 0;
+}
+
+.points-display span {
+  font-size: 2rem;
+}
+
+.points-display strong {
+  display: block;
+
+  font-size: 4rem;
+
+  color: var(--green-5);
+}
+
+.points-display p {
+  margin: 0;
+}
+
+.reward-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 18px;
+
+  text-align: left;
+}
+
+@media (max-width: 650px) {
+
+  .reward-list {
+    grid-template-columns: 1fr;
+  }
+
+}

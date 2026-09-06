@@ -1,0 +1,16 @@
+.centers-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+@media (max-width: 650px) {
+
+  .centers-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
