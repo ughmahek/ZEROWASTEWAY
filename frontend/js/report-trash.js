@@ -1,18 +1,108 @@
-const reportForm =
-  document.getElementById("trashReportForm");
+const reportForm = 
+  document.getElementById("trashReportForm"); 
 
-if (reportForm) {
+const locationInput =
+  document.getElementById("locationInput");
 
-  reportForm.addEventListener("submit", (e) => {
+const locationSuggestions =
+  document.getElementById("locationSuggestions");
 
-    e.preventDefault();
 
-    alert(
-      "Your trash report has been submitted!"
-    );
+let searchTimer = null;
 
-    reportForm.reset();
+
+if (locationInput && locationSuggestions) {
+
+  locationInput.addEventListener("input", () => {
+
+    const query = locationInput.value.trim();
+
+    clearTimeout(searchTimer);
+
+    if (query.length < 2) {
+      locationSuggestions.innerHTML = "";
+      return;
+    }
+
+
+    searchTimer = setTimeout(async () => {
+
+      try {
+
+        const url =
+          "https://nominatim.openstreetmap.org/search?" +
+          "format=json" +
+          "&addressdetails=1" +
+          "&limit=8" +
+          "&countrycodes=in" +
+          "&q=" +
+          encodeURIComponent(query);
+
+
+        const response = await fetch(url, {
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+
+        if (!response.ok) {
+          throw new Error("Location search failed");
+        }
+
+
+        const locations = await response.json();
+
+
+        locationSuggestions.innerHTML = "";
+
+
+        locations.forEach((location) => {
+
+          const option =
+            document.createElement("option");
+
+          option.value =
+            location.display_name;
+
+          locationSuggestions.appendChild(option);
+
+        });
+
+      }
+
+      catch (error) {
+
+        console.error(
+          "Location suggestion error:",
+          error
+        );
+
+      }
+
+    }, 400);
 
   });
+
+}
+
+
+if (reportForm) { 
+
+  reportForm.addEventListener("submit", (e) => { 
+
+    e.preventDefault(); 
+
+    alert( 
+      "Your trash report has been submitted!" 
+    ); 
+
+    reportForm.reset(); 
+
+    if (locationSuggestions) {
+      locationSuggestions.innerHTML = "";
+    }
+
+  }); 
 
 }
