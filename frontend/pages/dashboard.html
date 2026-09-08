@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/dashboard.css">
 </head>
+
 <body>
 
   <header>
@@ -18,9 +19,10 @@
     </div>
 
     <nav>
-        
 
-      <a href="trash-tips.html">Trash Tips</a>
+      <a href="trash-tips.html">
+        Trash Tips
+      </a>
 
       <a href="plastic-management.html">
         Plastic Management
@@ -41,9 +43,10 @@
       <a href="recycle-centers.html">
         Recycle
       </a>
-       <a href="waste-partner.html">
-  Waste Partner
-</a>
+
+      <a href="waste-partner.html">
+        Waste Partner
+      </a>
 
       <a href="sustainable-products.html">
         Sustainable Products
@@ -53,11 +56,18 @@
 
   </header>
 
+
   <main class="wrap">
+
+    <!-- DASHBOARD HERO -->
 
     <section class="card dashboard-hero">
 
-     <h1>Welcome back, <span id="userName">there</span> 👋</h1>
+      <h1>
+        Welcome back,
+        <span id="userName">there</span>
+        👋
+      </h1>
 
       <p>
         Don't trash it. Transform it.
@@ -65,66 +75,171 @@
 
     </section>
 
+
+    <!-- DASHBOARD CARDS -->
+
     <section class="dashboard-grid">
 
       <a href="trash-tips.html" class="dashboard-card">
-        <h2>♻ Trash Tips</h2>
-        <p>Learn simple ways to reduce your everyday waste.</p>
+
+        <h2>
+          ♻ Trash Tips
+        </h2>
+
+        <p>
+          Learn simple ways to reduce your everyday waste.
+        </p>
+
       </a>
+
 
       <a href="plastic-management.html" class="dashboard-card">
-        <h2>🛍 Plastic Management</h2>
-        <p>Discover better ways to reduce plastic usage.</p>
+
+        <h2>
+          🧴 Plastic Management
+        </h2>
+
+        <p>
+          Discover better ways to reduce plastic usage.
+        </p>
+
       </a>
+
 
       <a href="rewards.html" class="dashboard-card">
-        <h2>🏅 Rewards</h2>
-        <p>Track your Green Points and rewards.</p>
+
+        <h2>
+          🏆 Rewards
+        </h2>
+
+        <p>
+          Track your Green Points and rewards.
+        </p>
+
       </a>
+
 
       <a href="report-trash.html" class="dashboard-card">
-        <h2>📸 Report Trash</h2>
-        <p>Report illegal dumping and waste problems.</p>
+
+        <h2>
+          📸 Report Trash
+        </h2>
+
+        <p>
+          Report illegal dumping and waste problems.
+        </p>
+
       </a>
+
 
       <a href="buy-recycled.html" class="dashboard-card">
-        <h2>🛒 Buy Recycled</h2>
-        <p>Shop products made from recycled materials.</p>
+
+        <h2>
+          🛒 Buy Recycled
+        </h2>
+
+        <p>
+          Shop products made from recycled materials.
+        </p>
+
       </a>
+
 
       <a href="recycle-centers.html" class="dashboard-card">
-        <h2>📍 Recycle Centers</h2>
-        <p>Find recycling centers near you.</p>
+
+        <h2>
+          📍 Recycle Centers
+        </h2>
+
+        <p>
+          Find recycling centers near you.
+        </p>
+
       </a>
+
+
       <a href="waste-partner.html" class="dashboard-card">
-  <h2>🤝 Waste Partner</h2>
-  <p>Connect with trusted waste collectors and recycling partners.</p>
-</a>
+
+        <h2>
+          🧹 Waste Partner
+        </h2>
+
+        <p>
+          Connect with trusted waste collectors and recycling partners.
+        </p>
+
+      </a>
+
 
       <a href="sustainable-products.html" class="dashboard-card">
-        <h2>🌱 Sustainable Products</h2>
-        <p>Explore eco-friendly alternatives.</p>
+
+        <h2>
+          🌱 Sustainable Products
+        </h2>
+
+        <p>
+          Explore eco-friendly alternatives.
+        </p>
+
       </a>
+
+    </section>
+
+
+    <!-- MY REPORTED TRASH -->
+
+    <section class="my-reports-section">
+
+      <div class="my-reports-header">
+
+        <div>
+
+          <h2>
+            My Reported Trash
+          </h2>
+
+          <p>
+            Track the waste problems you have reported and their cleanup status.
+          </p>
+
+        </div>
+
+
+        <a
+          href="report-trash.html"
+          class="report-trash-btn"
+        >
+          Report New Trash
+        </a>
+
+      </div>
+
+
+      <div id="myReportsContainer">
+
+        <div class="loading-reports">
+
+          <p>
+            Loading your reports...
+          </p>
+
+        </div>
+
+      </div>
 
     </section>
 
   </main>
 
+
   <footer>
+
     © 2025 ZeroWasteWay — Don't Trash It, Transform It
+
   </footer>
 
-  <script src="../js/dashboard.js"></script>
-<script>
-    const currentUser = JSON.parse(
-        localStorage.getItem("zeroWasteCurrentUser")
-    );
 
-    if (currentUser) {
-        document.getElementById("userName").textContent =
-            currentUser.fullname;
-    }
-</script>
+  <script src="../js/dashboard.js"></script>
 
 </body>
 </html>
