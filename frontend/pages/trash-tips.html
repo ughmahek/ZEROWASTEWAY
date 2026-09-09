@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trash Tips | ZeroWasteWay</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/trash-tips.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+        🌱 ZeroWasteWay
+    </div>
+
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trash-tips.html" class="active">Trash Tips</a>
+        <a href="plastic-management.html">Plastic</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="recycle-centers.html">Recycle</a>
+        <a href="waste-partner.html">Waste Partner</a>
+    </nav>
+
+</header>
+
+
+<main class="wrap">
+
+    <!-- HERO -->
+
+    <section class="tips-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                ♻️ LEARN • SORT • TRANSFORM
+            </span>
+
+            <h1>
+                Small changes.
+                <span>Big impact.</span>
+            </h1>
+
+            <p>
+                Learn how to manage everyday waste, recycle smarter,
+                and make better choices for the planet.
+            </p>
+
+        </div>
+
+        <div class="hero-illustration">
+            🌎
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="tips-search">
+
+        <div class="search-box">
+            🔍
+
+            <input
+                type="text"
+                id="tipSearch"
+                placeholder="Search waste tips..."
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="categories">
+
+        <button class="category active" data-category="all">
+            All
+        </button>
+
+        <button class="category" data-category="plastic">
+            🥤 Plastic
+        </button>
+
+        <button class="category" data-category="paper">
+            📦 Paper
+        </button>
+
+        <button class="category" data-category="glass">
+            🍾 Glass
+        </button>
+
+        <button class="category" data-category="metal">
+            🔩 Metal
+        </button>
+
+        <button class="category" data-category="ewaste">
+            💻 E-Waste
+        </button>
+
+        <button class="category" data-category="food">
+            🍎 Food Waste
+        </button>
+
+        <button class="category" data-category="compost">
+            🌿 Compost
+        </button>
+
+    </section>
+
+
+    <!-- TIPS -->
+
+    <section class="tips-grid" id="tipsGrid">
+
+
+        <article class="tip-card" data-category="plastic">
+
+            <div class="tip-icon">
+                🥤
+            </div>
+
+            <span class="tip-category">
+                PLASTIC
+            </span>
+
+            <h2>
+                Rinse before recycling
+            </h2>
+
+            <p>
+                Empty and rinse plastic bottles and containers
+                before putting them into recycling.
+            </p>
+
+            <div class="tip-rule">
+                <strong>DO</strong>
+                <span>Empty → Rinse → Dry → Recycle</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="paper">
+
+            <div class="tip-icon">
+                📦
+            </div>
+
+            <span class="tip-category">
+                PAPER
+            </span>
+
+            <h2>
+                Keep paper clean
+            </h2>
+
+            <p>
+                Clean cardboard and paper can often be recycled.
+                Heavily food-soiled paper may need another disposal method.
+            </p>
+
+            <div class="tip-rule">
+                <strong>TIP</strong>
+                <span>Flatten cardboard boxes before recycling.</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="glass">
+
+            <div class="tip-icon">
+                🍾
+            </div>
+
+            <span class="tip-category">
+                GLASS
+            </span>
+
+            <h2>
+                Handle glass carefully
+            </h2>
+
+            <p>
+                Keep glass separate from other waste and handle
+                broken pieces carefully.
+            </p>
+
+            <div class="tip-rule">
+                <strong>TIP</strong>
+                <span>Check your local recycling rules for glass.</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="metal">
+
+            <div class="tip-icon">
+                🔩
+            </div>
+
+            <span class="tip-category">
+                METAL
+            </span>
+
+            <h2>
+                Don't waste your cans
+            </h2>
+
+            <p>
+                Aluminium and steel cans can often be recycled.
+                Empty and rinse them before disposal.
+            </p>
+
+            <div class="tip-rule">
+                <strong>DO</strong>
+                <span>Empty → Rinse → Recycle</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="ewaste">
+
+            <div class="tip-icon">
+                💻
+            </div>
+
+            <span class="tip-category">
+                E-WASTE
+            </span>
+
+            <h2>
+                Never throw electronics in regular trash
+            </h2>
+
+            <p>
+                Phones, laptops, batteries and other electronics
+                should be taken to appropriate e-waste collection points.
+            </p>
+
+            <div class="tip-rule">
+                <strong>DON'T</strong>
+                <span>Put batteries or electronics in household trash.</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="food">
+
+            <div class="tip-icon">
+                🍎
+            </div>
+
+            <span class="tip-category">
+                FOOD WASTE
+            </span>
+
+            <h2>
+                Reduce food waste
+            </h2>
+
+            <p>
+                Plan meals, store food properly and use leftovers
+                before buying more.
+            </p>
+
+            <div class="tip-rule">
+                <strong>TIP</strong>
+                <span>Buy what you need and use what you buy.</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="compost">
+
+            <div class="tip-icon">
+                🌿
+            </div>
+
+            <span class="tip-category">
+                COMPOST
+            </span>
+
+            <h2>
+                Turn food scraps into something useful
+            </h2>
+
+            <p>
+                Many fruit and vegetable scraps can be composted
+                instead of being sent to landfill.
+            </p>
+
+            <div class="tip-rule">
+                <strong>TRY</strong>
+                <span>Fruit peels → Vegetable scraps → Compost</span>
+            </div>
+
+        </article>
+
+
+        <article class="tip-card" data-category="plastic">
+
+            <div class="tip-icon">
+                🛍️
+            </div>
+
+            <span class="tip-category">
+                PLASTIC
+            </span>
+
+            <h2>
+                Carry reusable bags
+            </h2>
+
+            <p>
+                Reusable bags can help reduce your dependence
+                on single-use plastic bags.
+            </p>
+
+            <div class="tip-rule">
+                <strong>SWAP</strong>
+                <span>Single-use bag → Reusable bag</span>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- WHERE DOES IT GO -->
+
+    <section class="sorting-game">
+
+        <div class="sorting-header">
+
+            <span class="hero-label">
+                🧠 QUICK CHALLENGE
+            </span>
+
+            <h2>
+                Where does this go?
+            </h2>
+
+            <p>
+                Test your waste-sorting knowledge.
+            </p>
+
+        </div>
+
+
+        <div class="sorting-item">
+
+            <div class="sorting-object">
+                🍌
+            </div>
+
+            <h3>
+                Banana Peel
+            </h3>
+
+            <p>
+                What is the best option?
+            </p>
+
+
+            <div class="sorting-options">
+
+                <button onclick="checkAnswer(this, false)">
+                    ♻️ Recycling
+                </button>
+
+                <button onclick="checkAnswer(this, true)">
+                    🌿 Compost
+                </button>
+
+                <button onclick="checkAnswer(this, false)">
+                    🗑️ General Waste
+                </button>
+
+            </div>
+
+            <p id="answerMessage"></p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 ZeroWasteWay — Don't Trash It, Transform It
+</footer>
+
+
+<script src="../js/trash-tips.js"></script>
+
+</body>
+</html>

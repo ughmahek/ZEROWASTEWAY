@@ -1,24 +1,328 @@
+/* =========================
+   TRASH TIPS PAGE
+========================= */
+
+body {
+    background: #f4f8f5;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.tips-hero {
+    margin-top: 40px;
+    padding: 55px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #e5f5eb, #f7fbf8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #d6efdf;
+    color: #26734d;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tips-hero h1 {
+    margin: 20px 0 12px;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1;
+    color: #173d2b;
+}
+
+.tips-hero h1 span {
+    display: block;
+    color: #2e9b62;
+}
+
+.tips-hero p {
+    max-width: 600px;
+    color: #617267;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hero-illustration {
+    font-size: 130px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.tips-search {
+    margin: 30px 0 20px;
+}
+
+.search-box {
+    max-width: 650px;
+    background: white;
+    border: 1px solid #dce8df;
+    border-radius: 16px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 25px rgba(35, 75, 50, 0.06);
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    color: #244634;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.category {
+    border: 1px solid #d6e5da;
+    background: white;
+    color: #476254;
+    padding: 10px 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    font-weight: 600;
+}
+
+.category:hover,
+.category.active {
+    background: #2e9b62;
+    color: white;
+    border-color: #2e9b62;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   TIPS GRID
+========================= */
+
 .tips-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
 }
 
-.tip {
-  min-height: 200px;
+.tip-card {
+    background: white;
+    padding: 27px;
+    border-radius: 22px;
+    border: 1px solid #e1ebe4;
+    transition: 0.3s ease;
 }
 
-.tip h2 {
-  color: var(--green-5);
+.tip-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 40px rgba(36, 83, 55, 0.10);
 }
 
-@media (max-width: 750px) {
+.tip-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: #eaf6ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
 
-  .tips-grid {
-    grid-template-columns: 1fr;
-  }
+.tip-category {
+    color: #2e9b62;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
 
+.tip-card h2 {
+    color: #203d2d;
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+.tip-card p {
+    color: #68786e;
+    line-height: 1.65;
+    font-size: 14px;
+}
+
+.tip-rule {
+    margin-top: 20px;
+    padding: 13px;
+    background: #f4f8f5;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tip-rule strong {
+    color: #26734d;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.tip-rule span {
+    color: #52655a;
+    font-size: 13px;
+}
+
+
+/* =========================
+   SORTING GAME
+========================= */
+
+.sorting-game {
+    margin: 70px 0;
+    padding: 45px;
+    border-radius: 28px;
+    background: #173d2b;
+    text-align: center;
+}
+
+.sorting-header h2 {
+    color: white;
+    font-size: 34px;
+    margin: 16px 0 8px;
+}
+
+.sorting-header p {
+    color: #bdd2c4;
+}
+
+.sorting-item {
+    max-width: 600px;
+    margin: 35px auto 0;
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+}
+
+.sorting-object {
+    font-size: 65px;
+    margin-bottom: 10px;
+}
+
+.sorting-item h3 {
+    margin: 5px 0;
+    color: #203d2d;
+    font-size: 24px;
+}
+
+.sorting-item > p {
+    color: #718078;
+}
+
+.sorting-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.sorting-options button {
+    padding: 13px;
+    border-radius: 12px;
+    border: 1px solid #dce7df;
+    background: #f8faf8;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #385344;
+    transition: 0.2s ease;
+}
+
+.sorting-options button:hover {
+    background: #eaf6ee;
+    border-color: #8ac5a1;
+}
+
+#answerMessage {
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
+
+    .tips-hero {
+        padding: 40px;
+    }
+
+    .hero-illustration {
+        font-size: 90px;
+    }
+
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .tips-hero {
+        padding: 30px;
+    }
+
+    .hero-illustration {
+        display: none;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sorting-game {
+        padding: 25px 18px;
+    }
+
+    .sorting-header h2 {
+        font-size: 28px;
+    }
 }
