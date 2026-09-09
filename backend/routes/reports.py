@@ -1,6 +1,7 @@
 import os
 import uuid
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from flask import Blueprint, request, jsonify, current_app
 from werkzeug.utils import secure_filename
@@ -8,6 +9,7 @@ from werkzeug.utils import secure_filename
 from database import db
 from models.report import Report
 
+IST = ZoneInfo("Asia/Kolkata")
 
 reports_bp = Blueprint(
     "reports",
@@ -218,7 +220,7 @@ def complete_report(report_id):
         }), 400
 
     report.after_photo = filename
-    report.completed_at = datetime.utcnow()
+    report.completed_at = datetime.now(IST)
     report.status = "COMPLETED"
 
     db.session.commit()

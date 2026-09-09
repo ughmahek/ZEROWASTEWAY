@@ -1,7 +1,9 @@
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from database import db
 
+IST = ZoneInfo("Asia/Kolkata")
 
 class Report(db.Model):
     __tablename__ = "reports"
@@ -22,7 +24,7 @@ class Report(db.Model):
     reported_at = db.Column(
         db.DateTime,
         nullable=False,
-        default=datetime.utcnow
+        default=lambda: datetime.now(IST)
     )
 
     # Description of the problem
