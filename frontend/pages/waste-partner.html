@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Waste Partners — ZeroWasteWay</title>
+    <title>Waste Partner Dashboard — ZeroWasteWay</title>
 
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/waste-partner.css">
+
 </head>
+
 
 <body>
 
@@ -19,95 +23,289 @@
     </div>
 
     <nav>
-        
-        <a href="marketplace.html">Marketplace</a>
-        <a href="index.html">Logout</a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="trash-tips.html">
+            Trash Tips
+        </a>
+
+        <a href="rewards.html">
+            Rewards
+        </a>
+
+        <a href="recycle-centers.html">
+            Recycle
+        </a>
+
+        <a href="waste-partner.html" class="active">
+            Waste Partner
+        </a>
+
+        <a href="marketplace.html">
+            Marketplace
+        </a>
+
+        <a href="index.html">
+            Logout
+        </a>
+
     </nav>
 
 </header>
 
 
+<main class="cleaner-container">
 
 
-   <main class="wrap">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-    <section class="partner-dashboard">
+    <section class="cleaner-hero">
 
-        <div class="dashboard-heading">
+        <span class="hero-label">
+            ♻ WASTE PARTNER PORTAL
+        </span>
 
-            <div>
-                <span class="hero-label">♻ WASTE PARTNER PORTAL</span>
+        <h1>
+            Cleaner Dashboard
+        </h1>
 
-                <h1>
-                    Welcome back, <span>abcvu</span> 👋
-                </h1>
+        <p>
+            View reported waste, accept cleanup requests,
+            and update reports after completing the cleanup.
+        </p>
 
-                <p>
-                    Manage your collections, respond to pickup requests
-                    and make a real impact in your community.
-                </p>
+    </section>
+
+
+    <!-- =========================
+         WELCOME CARD
+    ========================== -->
+
+    <section class="welcome-card">
+
+        <div>
+
+            <span class="small-label">
+                WELCOME BACK
+            </span>
+
+            <h2 id="partnerName">
+                Waste Partner
+            </h2>
+
+            <p id="partnerEmail">
+                Loading partner information...
+            </p>
+
+        </div>
+
+        <div class="partner-badge">
+            ♻️ Cleaner
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon pending-icon">
+                📋
             </div>
 
-            <div class="dashboard-stat">
-                <div class="stat-icon">🌍</div>
-                <div>
-                    <strong>0</strong>
-                    <span>Collections<br>completed</span>
-                </div>
+            <div>
+
+                <span class="stat-number" id="pendingCount">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Pending Reports
+                </span>
+
             </div>
 
         </div>
 
 
-        <section class="stats-grid">
+        <div class="stat-card">
 
-            <div class="stat-card">
-                <div class="stat-icon">📥</div>
-                <div>
-                    <span>Pending Requests</span>
-                    <strong>2</strong>
-                </div>
+            <div class="stat-icon accepted-icon">
+                🧹
             </div>
 
+            <div>
 
-            <div class="stat-card">
-                <div class="stat-icon">🚛</div>
-                <div>
-                    <span>Active Pickups</span>
-                    <strong>1</strong>
-                </div>
+                <span class="stat-number" id="acceptedCount">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Accepted Reports
+                </span>
+
             </div>
 
+        </div>
 
-            <div class="stat-card">
-                <div class="stat-icon">✅</div>
-                <div>
-                    <span>Completed</span>
-                    <strong>1</strong>
-                </div>
+
+        <div class="stat-card">
+
+            <div class="stat-icon completed-icon">
+                ✓
             </div>
 
+            <div>
 
-            <div class="stat-card">
-                <div class="stat-icon">🏆</div>
-                <div>
-                    <span>Green Points</span>
-                    <strong>10</strong>
-                </div>
+                <span class="stat-number" id="completedCount">
+                    0
+                </span>
+
+                <span class="stat-label">
+                    Completed Reports
+                </span>
+
             </div>
 
-        </section>
+        </div>
+
 
     </section>
+
+
+    <!-- =========================
+         PENDING REPORTS
+    ========================== -->
+
+    <section class="reports-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    ACTION REQUIRED
+                </span>
+
+                <h2>
+                    Pending Reports
+                </h2>
+
+            </div>
+
+            <button
+                class="refresh-btn"
+                id="refreshBtn"
+                type="button">
+                ↻ Refresh
+            </button>
+
+        </div>
+
+
+        <div id="reportsContainer">
+
+            <div class="loading">
+                Loading reports...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACCEPTED REPORTS
+    ========================== -->
+
+    <section class="reports-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    IN PROGRESS
+                </span>
+
+                <h2>
+                    My Accepted Reports
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="acceptedReportsContainer">
+
+            <div class="loading">
+                Loading accepted reports...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMPLETED REPORTS
+    ========================== -->
+
+    <section class="reports-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    COMPLETED WORK
+                </span>
+
+                <h2>
+                    Completed Reports
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="completedReportsContainer">
+
+            <div class="loading">
+                Loading completed reports...
+            </div>
+
+        </div>
+
+    </section>
+
 
 </main>
 
 
-
-
 <footer>
-    © 2026 ZeroWasteWay — Don't Trash It, Transform It
+
+    © 2026 ZeroWasteWay —
+    Don't Trash It, Transform It
+
 </footer>
 
+
+<script src="../js/waste-partner.js"></script>
+
 </body>
+
 </html>
