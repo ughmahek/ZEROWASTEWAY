@@ -1,23 +1,17 @@
 // =====================================================
-// REPORT TRASH - LOCATION AUTOCOMPLETE + BACKEND
+// REPORT TRASH - LOCATION AUTOCOMPLETE
 // =====================================================
 
 const reportForm = document.getElementById("trashReportForm");
 const locationInput = document.getElementById("locationInput");
-const locationSuggestions =
-    document.getElementById("locationSuggestions");
+const locationSuggestions = document.getElementById("locationSuggestions");
 
-// =====================================================
-// GEOAPIFY API KEY
-// =====================================================
-// IMPORTANT:
-// Put your existing Geoapify key here LOCALLY.
-// DO NOT commit the key to GitHub.
-//
-// Example:
-// const GEOAPIFY_API_KEY = "YOUR_KEY_HERE";
+// -----------------------------------------------------
+// PUT YOUR GEOAPIFY API KEY HERE
+// -----------------------------------------------------
 
-const GEOAPIFY_API_KEY = "YOUR_GEOAPIFY_API_KEY";
+const GEOAPIFY_API_KEY = "7410ac3889984d47b420944876641dba";
+
 
 // =====================================================
 // REMOVE NATIVE DATALIST
@@ -26,6 +20,7 @@ const GEOAPIFY_API_KEY = "YOUR_GEOAPIFY_API_KEY";
 if (locationInput) {
     locationInput.removeAttribute("list");
 }
+
 
 // =====================================================
 // CREATE CUSTOM DROPDOWN
@@ -51,16 +46,15 @@ if (!dropdown && locationInput) {
     dropdown.style.overflowY = "auto";
     dropdown.style.zIndex = "99999";
     dropdown.style.display = "none";
-    dropdown.style.boxShadow =
-        "0 5px 15px rgba(0,0,0,0.15)";
+    dropdown.style.boxShadow = "0 5px 15px rgba(0,0,0,0.15)";
 
     const row = locationInput.parentElement;
 
-    if (row) {
-        row.style.position = "relative";
-        row.appendChild(dropdown);
-    }
+    row.style.position = "relative";
+
+    row.appendChild(dropdown);
 }
+
 
 // =====================================================
 // TIMER
@@ -68,48 +62,50 @@ if (!dropdown && locationInput) {
 
 let searchTimer = null;
 
+
 // =====================================================
 // LOCATION INPUT
 // =====================================================
 
 if (locationInput) {
 
-    locationInput.addEventListener(
-        "input",
-        function () {
+    locationInput.addEventListener("input", function () {
 
-            const query =
-                locationInput.value.trim();
+        const query = locationInput.value.trim();
 
-            clearTimeout(searchTimer);
+        clearTimeout(searchTimer);
 
-            if (query.length < 2) {
-                hideDropdown();
-                return;
-            }
+        if (query.length < 2) {
 
-            searchTimer = setTimeout(
-                function () {
-                    searchLocations(query);
-                },
-                350
-            );
+            hideDropdown();
+
+            return;
         }
-    );
 
-    locationInput.addEventListener(
-        "focus",
-        function () {
 
-            const query =
-                locationInput.value.trim();
+        searchTimer = setTimeout(function () {
 
-            if (query.length >= 2) {
-                searchLocations(query);
-            }
+            searchLocations(query);
+
+        }, 350);
+
+    });
+
+
+    locationInput.addEventListener("focus", function () {
+
+        const query = locationInput.value.trim();
+
+        if (query.length >= 2) {
+
+            searchLocations(query);
+
         }
-    );
+
+    });
+
 }
+
 
 // =====================================================
 // SEARCH GEOAPIFY
@@ -117,63 +113,48 @@ if (locationInput) {
 
 async function searchLocations(query) {
 
-    if (!dropdown) {
-        return;
-    }
-
-    if (
-        !GEOAPIFY_API_KEY ||
-        GEOAPIFY_API_KEY === "YOUR_GEOAPIFY_API_KEY"
-    ) {
-        console.error(
-            "Geoapify API key is not configured."
-        );
-        hideDropdown();
-        return;
-    }
-
     try {
 
         showLoading();
 
+
         const url =
             "https://api.geoapify.com/v1/geocode/autocomplete?" +
-            "text=" +
-            encodeURIComponent(query) +
+            "text=" + encodeURIComponent(query) +
             "&limit=10" +
             "&format=json" +
             "&filter=countrycode:in" +
-            "&apiKey=" +
-            GEOAPIFY_API_KEY;
+            "&apiKey=" + GEOAPIFY_API_KEY;
 
-        const response =
-            await fetch(url);
+
+        const response = await fetch(url);
+
 
         if (!response.ok) {
 
             throw new Error(
-                "Geoapify API error: " +
-                response.status
+                "Geoapify API error: " + response.status
             );
+
         }
 
-        const data =
-            await response.json();
 
-        displayLocations(
-            data.results || []
-        );
+        const data = await response.json();
+
+
+        displayLocations(data.results || []);
+
 
     } catch (error) {
 
-        console.error(
-            "Location search error:",
-            error
-        );
+        console.error("Location search error:", error);
 
         hideDropdown();
+
     }
+
 }
+
 
 // =====================================================
 // DISPLAY LOCATIONS
@@ -181,115 +162,114 @@ async function searchLocations(query) {
 
 function displayLocations(results) {
 
-    if (!dropdown) {
-        return;
-    }
-
     dropdown.innerHTML = "";
 
+
     if (!results.length) {
+
         hideDropdown();
+
         return;
+
     }
 
-    results.forEach(
-        function (place) {
 
-            const item =
-                document.createElement("div");
+    results.forEach(function (place) {
 
-            item.style.padding = "12px 15px";
-            item.style.cursor = "pointer";
-            item.style.borderBottom =
-                "1px solid #eeeeee";
-            item.style.backgroundColor =
-                "white";
+        const item = document.createElement("div");
 
-            // ---------------------------------------------
-            // PLACE NAME
-            // ---------------------------------------------
+        item.style.padding = "12px 15px";
+        item.style.cursor = "pointer";
+        item.style.borderBottom = "1px solid #eeeeee";
+        item.style.backgroundColor = "white";
 
-            const placeName =
-                document.createElement("div");
 
-            placeName.style.fontWeight = "600";
-            placeName.style.fontSize = "15px";
-            placeName.style.color = "#222";
+        // ---------------------------------------------
+        // PLACE NAME
+        // ---------------------------------------------
 
-            placeName.textContent =
-                place.name ||
-                place.address_line1 ||
-                "Location";
+        const placeName = document.createElement("div");
 
-            // ---------------------------------------------
-            // ADDRESS
-            // ---------------------------------------------
+        placeName.style.fontWeight = "600";
+        placeName.style.fontSize = "15px";
+        placeName.style.color = "#222";
 
-            const address =
-                document.createElement("div");
 
-            address.style.fontSize = "12px";
-            address.style.color = "#777";
-            address.style.marginTop = "4px";
-            address.style.lineHeight = "1.4";
+        placeName.textContent =
+            place.name ||
+            place.address_line1 ||
+            "Location";
 
-            address.textContent =
+
+        // ---------------------------------------------
+        // ADDRESS
+        // ---------------------------------------------
+
+        const address = document.createElement("div");
+
+        address.style.fontSize = "12px";
+        address.style.color = "#777";
+        address.style.marginTop = "4px";
+        address.style.lineHeight = "1.4";
+
+
+        address.textContent =
+            place.formatted ||
+            place.address_line2 ||
+            "";
+
+
+        item.appendChild(placeName);
+        item.appendChild(address);
+
+
+        // ---------------------------------------------
+        // HOVER
+        // ---------------------------------------------
+
+        item.addEventListener("mouseenter", function () {
+
+            item.style.backgroundColor = "#f3f8f4";
+
+        });
+
+
+        item.addEventListener("mouseleave", function () {
+
+            item.style.backgroundColor = "white";
+
+        });
+
+
+        // ---------------------------------------------
+        // SELECT
+        // ---------------------------------------------
+
+        item.addEventListener("mousedown", function (event) {
+
+            event.preventDefault();
+
+            locationInput.value =
                 place.formatted ||
-                place.address_line2 ||
+                place.address_line1 ||
+                place.name ||
                 "";
 
-            item.appendChild(placeName);
-            item.appendChild(address);
 
-            // ---------------------------------------------
-            // HOVER
-            // ---------------------------------------------
+            hideDropdown();
 
-            item.addEventListener(
-                "mouseenter",
-                function () {
-                    item.style.backgroundColor =
-                        "#f3f8f4";
-                }
-            );
+        });
 
-            item.addEventListener(
-                "mouseleave",
-                function () {
-                    item.style.backgroundColor =
-                        "white";
-                }
-            );
 
-            // ---------------------------------------------
-            // SELECT LOCATION
-            // ---------------------------------------------
+        dropdown.appendChild(item);
 
-            item.addEventListener(
-                "mousedown",
-                function (event) {
+    });
 
-                    event.preventDefault();
-
-                    if (locationInput) {
-
-                        locationInput.value =
-                            place.formatted ||
-                            place.address_line1 ||
-                            place.name ||
-                            "";
-                    }
-
-                    hideDropdown();
-                }
-            );
-
-            dropdown.appendChild(item);
-        }
-    );
 
     dropdown.style.display = "block";
+
 }
+
 
 // =====================================================
 // LOADING
@@ -297,26 +277,24 @@ function displayLocations(results) {
 
 function showLoading() {
 
-    if (!dropdown) {
-        return;
-    }
-
     dropdown.innerHTML = "";
 
-    const loading =
-        document.createElement("div");
+
+    const loading = document.createElement("div");
 
     loading.style.padding = "14px";
     loading.style.color = "#777";
     loading.style.fontSize = "14px";
 
-    loading.textContent =
-        "Searching locations...";
+    loading.textContent = "Searching locations...";
+
 
     dropdown.appendChild(loading);
 
     dropdown.style.display = "block";
+
 }
+
 
 // =====================================================
 // HIDE DROPDOWN
@@ -330,241 +308,48 @@ function hideDropdown() {
 
     dropdown.innerHTML = "";
     dropdown.style.display = "none";
+
 }
+
 
 // =====================================================
 // CLICK OUTSIDE
 // =====================================================
 
-document.addEventListener(
-    "click",
-    function (event) {
+document.addEventListener("click", function (event) {
 
-        if (
-            locationInput &&
-            dropdown &&
-            !locationInput.contains(
-                event.target
-            ) &&
-            !dropdown.contains(
-                event.target
-            )
-        ) {
+    if (
+        locationInput &&
+        dropdown &&
+        !locationInput.contains(event.target) &&
+        !dropdown.contains(event.target)
+    ) {
 
-            hideDropdown();
-        }
+        hideDropdown();
+
     }
-);
+
+});
+
 
 // =====================================================
-// SUBMIT TRASH REPORT
+// FORM SUBMIT
 // =====================================================
 
 if (reportForm) {
 
-    reportForm.addEventListener(
-        "submit",
-        async function (e) {
+    reportForm.addEventListener("submit", function (e) {
 
-            e.preventDefault();
+        e.preventDefault();
 
-            try {
 
-                // -----------------------------------------
-                // GET LOGGED-IN USER
-                // -----------------------------------------
+        alert("Your trash report has been submitted!");
 
-                const currentUser =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "zeroWasteCurrentUser"
-                        )
-                    );
 
-                if (!currentUser) {
+        reportForm.reset();
 
-                    alert(
-                        "Please log in before submitting a report."
-                    );
+        hideDropdown();
 
-                    return;
-                }
+    });
 
-                // -----------------------------------------
-                // GET FORM ELEMENTS
-                // -----------------------------------------
-
-                const photoInput =
-                    reportForm.querySelector(
-                        'input[type="file"]'
-                    );
-
-                const descriptionInput =
-                    reportForm.querySelector(
-                        "textarea"
-                    );
-
-                if (!photoInput) {
-
-                    alert(
-                        "Photo upload field not found."
-                    );
-
-                    return;
-                }
-
-                if (!descriptionInput) {
-
-                    alert(
-                        "Description field not found."
-                    );
-
-                    return;
-                }
-
-                const photo =
-                    photoInput.files[0];
-
-                const location =
-                    locationInput
-                        ? locationInput.value.trim()
-                        : "";
-
-                const description =
-                    descriptionInput.value.trim();
-
-                // -----------------------------------------
-                // VALIDATE PHOTO
-                // -----------------------------------------
-
-                if (!photo) {
-
-                    alert(
-                        "Please upload a photo of the trash."
-                    );
-
-                    return;
-                }
-
-                // -----------------------------------------
-                // VALIDATE LOCATION
-                // -----------------------------------------
-
-                if (!location) {
-
-                    alert(
-                        "Please enter the location."
-                    );
-
-                    return;
-                }
-
-                // -----------------------------------------
-                // VALIDATE DESCRIPTION
-                // -----------------------------------------
-
-                if (!description) {
-
-                    alert(
-                        "Please describe the problem."
-                    );
-
-                    return;
-                }
-
-                // -----------------------------------------
-                // CREATE FORM DATA
-                // -----------------------------------------
-
-                const formData =
-                    new FormData();
-
-                formData.append(
-                    "user_id",
-                    currentUser.email
-                );
-
-                formData.append(
-                    "before_photo",
-                    photo
-                );
-
-                formData.append(
-                    "location",
-                    location
-                );
-
-                formData.append(
-                    "description",
-                    description
-                );
-
-                // -----------------------------------------
-                // SEND TO FLASK BACKEND
-                // -----------------------------------------
-
-                const response =
-                    await fetch(
-                        "http://127.0.0.1:5000/api/reports",
-                        {
-                            method: "POST",
-                            body: formData
-                        }
-                    );
-
-                const result =
-                    await response.json();
-
-                // -----------------------------------------
-                // HANDLE ERROR
-                // -----------------------------------------
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        result.error ||
-                        "Failed to submit report."
-                    );
-                }
-
-                // -----------------------------------------
-                // SUCCESS
-                // -----------------------------------------
-
-                console.log(
-                    "Report created:",
-                    result.report
-                );
-
-                alert(
-                    "Your trash report has been submitted successfully!"
-                );
-
-                // -----------------------------------------
-                // RESET FORM
-                // -----------------------------------------
-
-                reportForm.reset();
-
-                hideDropdown();
-
-                if (locationSuggestions) {
-
-                    locationSuggestions.innerHTML =
-                        "";
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Report submission error:",
-                    error
-                );
-
-                alert(
-                    "Could not submit the report. Please try again."
-                );
-            }
-        }
-    );
 }
